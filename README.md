@@ -13,6 +13,7 @@ compiler. See [LICENSE](LICENSE) for details.
 Home page: https://ocaml.github.io/uchar/  
 Contact: Daniel Bünzli `<daniel.buenzl i@erratique.ch>`
 
+
 # Installation
 
 Uchar can be installed with `opam`:
@@ -21,6 +22,14 @@ Uchar can be installed with `opam`:
 
 If you don't use `opam` consult the [`opam`](opam) file for build
 instructions.
+
+
+# Documentation
+
+Since OCaml 4.03 you can find the module in the documentation
+of the [standard library][1]. Before this you can consult
+[this page](https://ocaml.github.io/uchar/Uchar.html).
+
 
 # Testing
 
