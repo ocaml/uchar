@@ -1,2 +1,2 @@
 description = "Compatibility library for OCaml's Uchar module"
-version = "%%VERSION%%"
+version = "distributed with OCaml 4.03 or above"
