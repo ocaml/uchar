@@ -79,7 +79,7 @@ val compare : t -> t -> int
 (** [compare u u'] is [Pervasives.compare u u']. *)
 
 val hash : t -> int
-(** [hash u] associates a non negative integer to [u]. *)
+(** [hash u] associates a non-negative integer to [u]. *)
 
 val dump : Format.formatter -> t -> unit
 (** [dump ppf u] prints a representation of [u] on [ppf] using
