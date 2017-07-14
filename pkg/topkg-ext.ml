@@ -39,8 +39,8 @@ end = struct
   let read file = try
     let ic = open_in file in 
     let len = in_channel_length ic in 
-    let s = String.create len in 
-    really_input ic s 0 len; close_in ic; `Ok s
+    let s = Buffer.create len in
+    Buffer.add_channel s ic len; close_in ic; `Ok (Buffer.contents s)
   with Sys_error e -> `Error e
 
   let write f s = try 
@@ -68,7 +68,8 @@ end = struct
             let id = String.sub s (id_start) (!last_id - id_start) in
             try 
               let subst = List.assoc id vars in
-              output oc s !start (start_subst - !start); 
+              let s = String.sub s !start (start_subst - !start) in
+              output_string oc s;
               output_string oc subst; 
               stop := true;
               start := !last_id + 2; 
@@ -80,7 +81,8 @@ end = struct
         done
       end
     done;
-    output oc s !start (len - !start); close_out oc; `Ok () 
+    let s = String.sub s !start (len - !start) in
+    output_string oc s; close_out oc; `Ok ()
   with Sys_error e -> `Error e
   
   let delete ?(maybe = false) file = try
