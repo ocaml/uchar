@@ -49,5 +49,3 @@ let unsafe_to_char = Char.unsafe_chr
 let equal : int -> int -> bool = ( = )
 let compare : int -> int -> int = Pervasives.compare
 let hash = to_int
-
-let dump ppf u = Format.fprintf ppf "U+%04X" u
